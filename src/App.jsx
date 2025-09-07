@@ -8,11 +8,12 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import useSmoothScroll from './components/useSmoothScroll'
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  useSmoothScroll();
 
   return (
 <div>
