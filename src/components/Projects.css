@@ -1,0 +1,272 @@
+.projects.full-width {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #0a0a0a;
+    /* padding: 4rem 2rem; */
+    overflow: hidden;
+}
+
+.projects-title {
+    font-size: 3rem;
+    text-align: left;
+    /* aligned left */
+    margin-bottom: 2rem;
+    padding-left: 8%;
+    color: #00e5ff;
+}
+
+
+.projects-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.projects-list {
+    list-style: none;
+    padding-left: 8%;
+    margin: 0;
+    text-align: left;
+    /* aligned left */
+    /* max-width: 600px; */
+}
+
+.projects-list li {
+    margin: 15px 0;
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.project-item {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    color: #888;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* white line */
+}
+
+
+.project-item {
+    font-size: 2rem;
+    margin: 2rem 0;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.project-item.active,
+.project-item:hover {
+    color: #fff;
+}
+
+.project-desc {
+    font-size: 1rem;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.3s ease;
+    color: #aaa;
+}
+
+.project-desc.show {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 0.5rem;
+}
+
+/* Floating Thumbnail */
+.floating-thumbnail {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+    opacity: 0;
+    display: flex;
+    /* center children */
+    align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+    width: 280px;
+    /* match thumb width */
+    height: 160px;
+    /* set approximate height (adjust to your thumbs) */
+    transition: top 0.15s ease, left 0.15s ease, transform 0.4s ease;
+}
+
+.floating-thumbnail.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.floating-thumbnail .thumb-slide {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.4s ease;
+}
+
+
+.floating-thumbnail .thumb-slide img {
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    display: block;
+}
+
+.floating-thumbnail .thumb-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    /* slide into place */
+    z-index: 2;
+}
+
+/* .floating-thumbnail img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  display: block;
+} */
+
+.floating-thumbnail .watch-now {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background 0.3s ease;
+}
+
+.floating-thumbnail .watch-now:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.video-container {
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+
+
+
+/* 🔽 Mobile/Tablet adjustments */
+@media (max-width: 770px) {
+    .projects.full-width {
+        padding: 2rem 1rem;
+    }
+
+    .projects-title {
+        font-size: 2rem;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .projects-list {
+        padding-left: 0;
+    }
+
+    .project-item {
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+        color: #fff;
+        /* keep all titles visible */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: default;
+    }
+
+    .project-desc {
+        opacity: 1;
+        /* always visible */
+        max-height: none;
+        /* no collapsing */
+        margin-top: 0.5rem;
+        color: #aaa;
+    }
+
+    /* Remove floating thumbnail on mobile */
+    .floating-thumbnail {
+        display: none !important;
+    }
+
+    /* Instead, show thumbnail inline */
+    .project-thumbnail-inline {
+        margin-top: 0.75rem;
+    }
+
+    .project-thumbnail-inline img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        display: block;
+    }
+
+    .project-thumbnail-inline .watch-now {
+        margin-top: 0.5rem;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: background 0.3s ease;
+    }
+
+    .project-thumbnail-inline .watch-now:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Inline project thumbnails for mobile */
+    .inline-project {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .inline-thumbnail {
+        width: 260px;
+        /* default size */
+        height: 150px;
+        /* maintain aspect ratio (16:9-ish) */
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+}
