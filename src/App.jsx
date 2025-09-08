@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import useSmoothScroll from './components/useSmoothScroll'
+import NavBubble from './components/NavBubble'
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Projects/>
       <Contact/>
       <Footer/>
+      <NavBubble/>
 
 
 

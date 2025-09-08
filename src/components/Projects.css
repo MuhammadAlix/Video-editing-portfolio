@@ -26,6 +26,7 @@
 .projects-list {
     list-style: none;
     padding-left: 8%;
+    width: 92%;
     margin: 0;
     text-align: left;
     /* aligned left */
@@ -37,6 +38,7 @@
     cursor: pointer;
     padding: 10px 12px;
     border-radius: 6px;
+    width: 94%;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
@@ -70,7 +72,7 @@
 .project-desc {
     font-size: 1rem;
     opacity: 0;
-    max-height: 0;
+    max-height: 200px;
     transition: all 0.3s ease;
     color: #aaa;
 }
@@ -83,6 +85,7 @@
 
 /* Floating Thumbnail */
 .floating-thumbnail {
+    pointer-events: none;
     position: absolute;
     transform: translate(-50%, -50%) scale(0.8);
     pointer-events: none;
@@ -108,8 +111,9 @@
 .floating-thumbnail .thumb-slide {
     position: absolute;
     opacity: 0;
-    transform: translateY(-20px);
-    transition: transform 0.4s ease;
+    transform: translateY(80px);
+    transition: transform 0.01ms ease;
+    transition: opacity 0.01ms ease;
 }
 
 
@@ -181,7 +185,7 @@
 
 
 /* 🔽 Mobile/Tablet adjustments */
-@media (max-width: 770px) {
+@media (max-width: 900px) {
     .projects.full-width {
         padding: 2rem 1rem;
     }
@@ -220,21 +224,21 @@
     }
 
     /* Instead, show thumbnail inline */
-    .project-thumbnail-inline {
+    .inline-project {
         margin-top: 0.75rem;
     }
 
-    .project-thumbnail-inline img {
-        width: 100%;
+    .inline-project img {
+        /* width: 100%; */
         max-width: 400px;
         border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 10px #00e5ff;
         display: block;
     }
 
-    .project-thumbnail-inline .watch-now {
+    .inline-project .watch-now {
         margin-top: 0.5rem;
-        background: rgba(0, 0, 0, 0.7);
+        background: #00e5ff;
         border: none;
         color: #fff;
         padding: 0.6rem 1rem;

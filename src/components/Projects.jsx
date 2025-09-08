@@ -71,7 +71,7 @@ function Projects() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 868);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -118,7 +118,7 @@ function Projects() {
 
             {/* Mobile: show thumbnails + button inline */}
             {isMobile && (
-              <div className="inline-project">
+              <div className="inline-project" style={{alignItems : "center"}}>
                 <img
                   src={project.thumbnail}
                   alt={project.title}

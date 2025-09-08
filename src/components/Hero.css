@@ -12,11 +12,8 @@
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
+  inset: 0;
+  z-index: -1;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
     #0f3460,
@@ -24,11 +21,20 @@
     #1a1a2e,
     #0d0d0d
   );
-
   background-size: 200% 200%;
-  z-index: -1;
-  transition: background 0.2s ease-out;
+  transition: filter 0.6s linear;
 }
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  transform: translate(var(--parallax-x, 0), var(--parallax-y, 0));
+  transition: transform 0.12s ease-out;
+}
+
+/* letters, enter/exit animations unchanged */
+.letter.enter { /* ... */ }
+.letter.exit  { /* ... */ }
 
 
 @keyframes gradientShift {
