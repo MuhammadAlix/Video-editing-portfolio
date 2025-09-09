@@ -33,8 +33,9 @@ function NavBubble() {
         const currentSection = sections[currentIndex];
         const nextIndex = (currentIndex + 1) % sections.length;
 
+        sections[nextIndex].scrollIntoView({ behavior: "smooth" });
         // On mobile: if section is very tall, manually scroll one full viewport down
-        if (window.innerWidth < 768 && currentSection.offsetHeight > window.innerHeight * 1.5) {
+        if (window.innerWidth < 900 && currentSection.offsetHeight > window.innerHeight * 1.5) {
             window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
         } else {
             sections[nextIndex].scrollIntoView({ behavior: "smooth" });

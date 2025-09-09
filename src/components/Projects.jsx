@@ -102,23 +102,21 @@ function Projects() {
         {projects.map((project, index) => (
           <li
             key={index}
-            className={`project-item ${
-              activeProject?.title === project.title ? "active" : ""
-            }`}
+            className={`project-item ${activeProject?.title === project.title ? "active" : ""
+              }`}
             onMouseEnter={() => !isMobile && setActiveProject(project)}
           >
             <span className="project-title">{project.title}</span>
             <p
-              className={`project-desc ${
-                isMobile || activeProject?.title === project.title ? "show" : ""
-              }`}
+              className={`project-desc ${isMobile || activeProject?.title === project.title ? "show" : ""
+                }`}
             >
               {project.desc}
             </p>
 
             {/* Mobile: show thumbnails + button inline */}
             {isMobile && (
-              <div className="inline-project" style={{alignItems : "center"}}>
+              <div className="inline-project" style={{ alignItems: "center" }}>
                 <img
                   src={project.thumbnail}
                   alt={project.title}
@@ -145,9 +143,8 @@ function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className={`thumb-slide ${
-                activeProject?.title === project.title ? "active" : ""
-              }`}
+              className={`thumb-slide ${activeProject?.title === project.title ? "active" : ""
+                }`}
             >
               <img src={project.thumbnail} alt={project.title} />
               {activeProject?.title === project.title && (
@@ -170,6 +167,14 @@ function Projects() {
             className="video-container"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
+            <button
+              className="close-btn"
+              onClick={() => setVideoOverlay(null)}
+            >
+              ✕
+            </button>
+
             <iframe
               width="100%"
               height="100%"
@@ -182,6 +187,7 @@ function Projects() {
           </div>
         </div>
       )}
+
     </section>
   );
 }
